@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("cintura.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scala.png")]
 
 
