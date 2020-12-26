@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scala.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("wrestler%202.png")]
 
 
