@@ -26,9 +26,9 @@ namespace EsLadder
         readonly Uri uriWrestler1 = new Uri("Wrestler 1.png", UriKind.Relative);
         readonly Uri uriWrestler2 = new Uri("Wrestler 2.png", UriKind.Relative);
 
-        public int posVerticaleWrestler1 = 196;
-        public int posVerticaleWrestler2 = 182;
-        public int posOrizzontaleWrestler1 = 203;
+        public int posVerticaleWrestler1 = 203;
+        public int posVerticaleWrestler2 = 203;
+        public int posOrizzontaleWrestler1 = 196;
         public int posOrizzontaleWrestler2 = 442;
         public MainWindow()
         {
@@ -43,15 +43,14 @@ namespace EsLadder
 
             t2.Start();
             t1.Start();
-        
         }
 
         public void MuoviWrestler1()
         {
-            while (posVerticaleWrestler1 < 200)
+            while (posVerticaleWrestler1 > 100)
             {
-                posVerticaleWrestler1 -= 20;
-                posOrizzontaleWrestler1 += 10;
+                posVerticaleWrestler1 -= 10;
+                posOrizzontaleWrestler1 += 5;
                 Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
@@ -63,10 +62,10 @@ namespace EsLadder
 
         public void MuoviWrestler2()
         {
-            while (posVerticaleWrestler2 < 200)
+            while (posVerticaleWrestler2 > 100)
             {
-                posVerticaleWrestler2 -= 20;
-                posOrizzontaleWrestler2 -= 10;
+                posVerticaleWrestler2 -= 10;
+                posOrizzontaleWrestler2 -= 5;
                 Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
