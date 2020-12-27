@@ -43,11 +43,13 @@ namespace EsLadder
 
             t2.Start();
             t1.Start();
+
+            
         }
 
         public void MuoviWrestler1()
         {
-            while (posVerticaleWrestler1 > 100)
+            while (posVerticaleWrestler1 > 75)
             {
                 posVerticaleWrestler1 -= 10;
                 posOrizzontaleWrestler1 += 5;
@@ -62,7 +64,7 @@ namespace EsLadder
 
         public void MuoviWrestler2()
         {
-            while (posVerticaleWrestler2 > 100)
+            while (posVerticaleWrestler2 > 75)
             {
                 posVerticaleWrestler2 -= 10;
                 posOrizzontaleWrestler2 -= 5;
