@@ -26,8 +26,10 @@ namespace EsLadder
         readonly Uri uriWrestler1 = new Uri("Wrestler 1.png", UriKind.Relative);
         readonly Uri uriWrestler2 = new Uri("Wrestler 2.png", UriKind.Relative);
 
-        public int posWrestler1 = 100;
-        public int posWrestler2 = 100;
+        public int posVerticaleWrestler1 = 196;
+        public int posVerticaleWrestler2 = 182;
+        public int posOrizzontaleWrestler1 = 203;
+        public int posOrizzontaleWrestler2 = 442;
         public MainWindow()
         {
             InitializeComponent();
@@ -46,13 +48,14 @@ namespace EsLadder
 
         public void MuoviWrestler1()
         {
-            while (posWrestler1 < 300)
+            while (posVerticaleWrestler1 < 200)
             {
-                posWrestler1 += 50;
+                posVerticaleWrestler1 -= 20;
+                posOrizzontaleWrestler1 += 10;
                 Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    Wrestler_Sinistra.Margin = new Thickness(201, posWrestler1, 0, 0);
+                    Wrestler_Sinistra.Margin = new Thickness(posOrizzontaleWrestler1, posVerticaleWrestler1, 0, 0);
 
                 }));
             }
@@ -60,13 +63,14 @@ namespace EsLadder
 
         public void MuoviWrestler2()
         {
-            while (posWrestler2 < 300)
+            while (posVerticaleWrestler2 < 200)
             {
-                posWrestler2 += 50;
+                posVerticaleWrestler2 -= 20;
+                posOrizzontaleWrestler2 -= 10;
                 Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    Wrestler_Destra.Margin = new Thickness(454, posWrestler2, 0, 0);
+                    Wrestler_Destra.Margin = new Thickness(posOrizzontaleWrestler2, posVerticaleWrestler2, 0, 0);
 
                 }));
             }
