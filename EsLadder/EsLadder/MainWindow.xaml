@@ -13,6 +13,8 @@
         <Image HorizontalAlignment="Left" Height="1307" VerticalAlignment="Top" Width="580" Margin="165,-31,0,-857" Source="Scala.png"/>
         <Image x:Name="Wrestler_Sinistra" HorizontalAlignment="Left" Height="162" Margin="196,203,0,0" VerticalAlignment="Top" Width="200" Source="Wrestler 1.png"/>
         <Image x:Name="Wrestler_Destra" HorizontalAlignment="Left" Height="160" Margin="442,203,0,0" VerticalAlignment="Top" Width="208" Source="Wrestler 2.png"/>
+        <Label x:Name="lbl_CronometroWrestler1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="512,0,0,0" Height="51" Width="233"/>
+        <Label x:Name="lbl_CronometroWrestler2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="512,51,0,0" Height="51" Width="233"/>
 
     </Grid>
 </Window>
