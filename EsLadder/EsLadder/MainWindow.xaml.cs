@@ -62,8 +62,8 @@ namespace EsLadder
             t2.Join(1);
             s2.Stop();
 
-            lbl_CronometroWrestler1.Content = "Tempo Wrestler 1: " + s1.ElapsedMilliseconds + "ms";
-            lbl_CronometroWrestler2.Content = "Tempo Wrestler 2: " + s2.ElapsedMilliseconds+ "ms";
+            lbl_CronometroWrestler1.Content = "Tempo Wrestler di Sinistra : " + s1.ElapsedMilliseconds + "ms";
+            lbl_CronometroWrestler2.Content = "Tempo Wrestler di Destra : " + s2.ElapsedMilliseconds+ "ms";
             
         }
 
@@ -73,7 +73,7 @@ namespace EsLadder
             {
                 posVerticaleWrestler1 -= 10;
                 posOrizzontaleWrestler1 += 5;
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     Wrestler_Sinistra.Margin = new Thickness(posOrizzontaleWrestler1, posVerticaleWrestler1, 0, 0);
@@ -90,7 +90,7 @@ namespace EsLadder
             {
                 posVerticaleWrestler2 -= 10;
                 posOrizzontaleWrestler2 -= 5;
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     Wrestler_Destra.Margin = new Thickness(posOrizzontaleWrestler2, posVerticaleWrestler2, 0, 0);
@@ -104,11 +104,11 @@ namespace EsLadder
         public void Cronometri()
         {
             
-            if (s1.Elapsed < s2.Elapsed)
+            if (s1.ElapsedMilliseconds < s2.ElapsedMilliseconds)
             {
                 MessageBox.Show("Ha vinto il Wrestler 1");
             }
-            else if (s1.Elapsed == s2.Elapsed)
+            else if (s1.ElapsedMilliseconds == s2.ElapsedMilliseconds)
             {
                 MessageBox.Show("pareggio");
             }
