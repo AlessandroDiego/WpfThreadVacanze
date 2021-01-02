@@ -52,8 +52,6 @@ namespace EsLadder
             ImageSource imm2 = new BitmapImage(uriWrestler2);
             Wrestler_Destra.Source = imm2;
 
-           
-
             s1.Start();
             t1.Start();
             t1.Join(1);
@@ -64,8 +62,8 @@ namespace EsLadder
             t2.Join(1);
             s2.Stop();
 
-            lbl_CronometroWrestler1.Content = "tempo Wrestler 1: " + s1.ElapsedMilliseconds + "ms";
-            lbl_CronometroWrestler2.Content = "tempo Wrestler 2: " + s2.ElapsedMilliseconds+ "ms";
+            lbl_CronometroWrestler1.Content = "Tempo Wrestler 1: " + s1.ElapsedMilliseconds + "ms";
+            lbl_CronometroWrestler2.Content = "Tempo Wrestler 2: " + s2.ElapsedMilliseconds+ "ms";
             
         }
 
@@ -108,7 +106,7 @@ namespace EsLadder
             
             if (s1.Elapsed < s2.Elapsed)
             {
-                MessageBox.Show("ha vinto il wrestler 1");
+                MessageBox.Show("Ha vinto il Wrestler 1");
             }
             else if (s1.Elapsed == s2.Elapsed)
             {
@@ -116,7 +114,7 @@ namespace EsLadder
             }
             else
             {
-                MessageBox.Show("ha vinto il wrestler 2");
+                MessageBox.Show("Ha vinto il Wrestler 2");
             }
         }
     }
