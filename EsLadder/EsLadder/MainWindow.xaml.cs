@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
+using System.Diagnostics;
 
 namespace EsLadder
 {
@@ -41,10 +42,31 @@ namespace EsLadder
             ImageSource imm2 = new BitmapImage(uriWrestler2);
             Wrestler_Destra.Source = imm2;
 
-            t2.Start();
-            t1.Start();
+            Stopwatch s2 = new Stopwatch();
+            Stopwatch s1 = new Stopwatch();
 
-            
+            s1.Start();
+            t1.Start();
+            s1.Stop();
+
+            s2.Start();
+            t2.Start();
+            s2.Stop();
+
+            if (s1.Elapsed < s2.Elapsed)
+            {
+                MessageBox.Show("ha vinto il wrestler 1");
+            }
+            else if(s1.Elapsed==s2.Elapsed)
+            {
+                MessageBox.Show("pareggio");
+            }
+            else
+            {
+                MessageBox.Show("ha vinto il wrestler 2");
+            }
+
+
         }
 
         public void MuoviWrestler1()
