@@ -50,12 +50,11 @@ namespace EsLadder
             Wrestler_Destra.Source = imm2;
 
             t1.Start();
-           
-
             t2.Start();
-            
-            t2.Join(1);
+
             t1.Join(1);
+            t2.Join(1);
+           
         }
 
         public void MuoviWrestler1()
