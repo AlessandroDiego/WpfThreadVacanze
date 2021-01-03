@@ -33,16 +33,13 @@ namespace EsLadder
         public int posOrizzontaleWrestler1 = 196;
         public int posOrizzontaleWrestler2 = 442;
 
-        Stopwatch s2;
-        Stopwatch s1;
+        Random r1=new Random();
+        Random r2 = new Random();
+        public int giaVinto = 0;
         public MainWindow()
         {
 
             InitializeComponent();
-
-            s1 = new Stopwatch();
-            s2 = new Stopwatch();
-            
 
             Thread t1 = new Thread(new ThreadStart(MuoviWrestler1));
             ImageSource imm1 = new BitmapImage(uriWrestler1);
@@ -52,18 +49,15 @@ namespace EsLadder
             ImageSource imm2 = new BitmapImage(uriWrestler2);
             Wrestler_Destra.Source = imm2;
 
-            s1.Start();
+          
             t1.Start();
-            t1.Join(1);
-            s1.Stop();
+           
+          
 
-            s2.Start();
             t2.Start();
-            t2.Join(1);
-            s2.Stop();
+        
+     
 
-            lbl_CronometroWrestler1.Content = "Tempo Wrestler di Sinistra : " + s1.ElapsedMilliseconds + "ms";
-            lbl_CronometroWrestler2.Content = "Tempo Wrestler di Destra : " + s2.ElapsedMilliseconds+ "ms";
             
         }
 
@@ -71,9 +65,9 @@ namespace EsLadder
         {
             while (posVerticaleWrestler1 > 75)
             {
-                posVerticaleWrestler1 -= 10;
-                posOrizzontaleWrestler1 += 5;
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                posVerticaleWrestler1 -= r1.Next(1,5);
+                posOrizzontaleWrestler1 += 1;
+                Thread.Sleep(TimeSpan.FromMilliseconds(100));
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     Wrestler_Sinistra.Margin = new Thickness(posOrizzontaleWrestler1, posVerticaleWrestler1, 0, 0);
@@ -81,16 +75,22 @@ namespace EsLadder
                 }));
                
             }
-            Cronometri();
+            if (giaVinto == 0)
+            {
+                giaVinto = 1;
+                MessageBox.Show("Ha vinto il Wrestler 1");
+                
+            }
+           
         }
 
         public void MuoviWrestler2()
         {
             while (posVerticaleWrestler2 > 75)
             {
-                posVerticaleWrestler2 -= 10;
-                posOrizzontaleWrestler2 -= 5;
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                posVerticaleWrestler2 -= r2.Next(1,5);
+                posOrizzontaleWrestler2 -= 1;
+                Thread.Sleep(TimeSpan.FromMilliseconds(100));
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     Wrestler_Destra.Margin = new Thickness(posOrizzontaleWrestler2, posVerticaleWrestler2, 0, 0);
@@ -98,24 +98,13 @@ namespace EsLadder
                 }));
                
             }
-            
-        }
-
-        public void Cronometri()
-        {
-            
-            if (s1.ElapsedMilliseconds < s2.ElapsedMilliseconds)
+            if (giaVinto == 0)
             {
-                MessageBox.Show("Ha vinto il Wrestler 1");
-            }
-            else if (s1.ElapsedMilliseconds == s2.ElapsedMilliseconds)
-            {
-                MessageBox.Show("pareggio");
-            }
-            else
-            {
+                giaVinto = 1;
                 MessageBox.Show("Ha vinto il Wrestler 2");
+                
             }
+            
         }
     }
 }
