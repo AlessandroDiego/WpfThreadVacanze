@@ -51,10 +51,12 @@ namespace EsLadder
 
           
             t1.Start();
+            t1.Join(1);
            
           
 
             t2.Start();
+            t2.Join(1);
         
      
 
