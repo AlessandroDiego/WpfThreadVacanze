@@ -52,8 +52,6 @@ namespace EsLadder
             t1.Start();
             t2.Start();
 
-            t1.Join(1);
-            t2.Join(1);
            
         }
 
